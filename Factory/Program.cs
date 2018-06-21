@@ -1,12 +1,19 @@
-﻿using System;
+﻿using Factory.ConcreteComponent;
+using Factory.Interface;
+using System;
 
 namespace Factory
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SecureFactory secureFactory = new SecureFactory();
+            IConnection connection = secureFactory.CreateConnection("Oracle");
+
+            Console.WriteLine(connection.Description());
+
+            Console.ReadKey();
         }
     }
 }
